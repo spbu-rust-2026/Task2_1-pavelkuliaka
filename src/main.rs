@@ -4,7 +4,10 @@ fn main() {
 }
 
 fn process(_text: &mut String) -> &str {
-    todo!("исправьте заимствования и реализуйте process");
+    let start = _text.len() - _text.trim_start().len();
+    let end = start + _text.split_whitespace().next().map_or(0, str::len);
+    _text.push('!');
+    &_text[start..end]
 }
 
 #[cfg(test)]
